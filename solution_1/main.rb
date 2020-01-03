@@ -1,5 +1,11 @@
 require_relative 'scheduler'
 
+examples
+
+
+
+
+
 test_meetings = [
   { name: "Meeting 1", duration: 3, type: :onsite },
   { name: "Meeting 2", duration: 2, type: :offsite },
@@ -9,7 +15,4 @@ test_meetings = [
 
 
 scheduler = Scheduler.new(test_meetings)
-scheduler.schedule_all_meetings
-p scheduler.schedule
-
-
+puts scheduler.proposed_schedule

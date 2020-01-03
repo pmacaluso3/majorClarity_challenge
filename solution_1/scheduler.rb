@@ -64,6 +64,21 @@ class Scheduler
     schedule_onsite_meetings
     schedule_offsite_meetings
   end
+
+  def schedule_excluding_travel
+    schedule.reject { |m| m[:type] == :travel }
+  end
+
+  def schedule_for_print
+    schedule_excluding_travel.map do |meeting|
+      start_time = time_module.military_to_12_hour(meeting[:start_time])
+      end_time = time_module.military_to_12_hour(meeting[:end_time])
+      "#{start_time} - #{end_time} - #{meeting[:name]}"
+    end
+  end
+
+  def proposed_schedule
+    schedule_all_meetings
+    schedule_for_print
+  end
 end
-
-
