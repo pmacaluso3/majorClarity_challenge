@@ -1,6 +1,8 @@
 # Usage
-`cd /your/path/to/majorClarity_challenge/solution_1`
-`ruby main.rb`
+```
+cd /your/path/to/majorClarity_challenge/solution_1
+ruby main.rb
+```
 
 # Why is there a dir called solution_1
 This is the first approach I came up with, but I don't think it's the best way. So I intend to do a version that addresses the problems listed below. However, I got the challenge before christmas vacation and I'm turning it in afterwards, so I wanted to put something up asap.
