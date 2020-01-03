@@ -1,5 +1,6 @@
 module WorkdayTime
   START_OF_DAY = '9:00'
+
   class << self
     def time_string_to_numeric(time_string)
       raise "Not a valid time string" unless time_string.include?(':')
@@ -25,4 +26,4 @@ module WorkdayTime
 end
 
 
-p WorkdayTime.add_time_length_to_start_time(1.5, '10:00')
+# p WorkdayTime.add_time_length_to_start_time(1.5, '10:00')

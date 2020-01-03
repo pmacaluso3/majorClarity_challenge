@@ -1,4 +1,4 @@
-require_relative 'workday_time'
+require_relative 'scheduler'
 
 test_meetings = [
   { name: "Meeting 1", duration: 3, type: :onsite },
@@ -8,30 +8,6 @@ test_meetings = [
 ]
 
 
-def frontload_onsite_meetings(meetings)
-  onsite_meetings = meetings_of_type(meetings, :onsite)
-  offsite_meetings = meetings_of_type(meetings, :offsite)
-  onsite_meetings.concat(offsite_meetings)
-end
-
-def meetings_of_type(meetings, type)
-  meetings.select { |m| m[:type].to_sym == type.to_sym }
-end
-
-def assign_times_to_onsite_meetings(meetings)
-
-end
-
-
-def pad_travel_time_into_offsite_meetings(meetings)
-
-end
-
-
-def propose_schedule(meetings)
-
-end
-
-
-propose_schedule(test_meetings)
-
+scheduler = Scheduler.new(test_meetings)
+scheduler.assign_times_to_onsite_meetings
+p scheduler.schedule
