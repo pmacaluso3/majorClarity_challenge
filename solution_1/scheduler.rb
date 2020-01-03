@@ -80,9 +80,7 @@ class Scheduler
   def proposed_schedule
     schedule_all_meetings
 
-    if time_module.time_is_after_end_of_day(current_end_of_schedule)
-      return "Meetings cannot fit into workday"
-    end
+    return false if time_module.time_is_after_end_of_day(current_end_of_schedule)
 
     schedule_for_print
   end
