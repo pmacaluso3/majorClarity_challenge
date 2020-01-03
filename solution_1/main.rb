@@ -9,5 +9,7 @@ test_meetings = [
 
 
 scheduler = Scheduler.new(test_meetings)
-scheduler.assign_times_to_onsite_meetings
+scheduler.schedule_all_meetings
 p scheduler.schedule
+
+
