@@ -1,11 +1,5 @@
 require_relative 'scheduler'
 
-examples
-
-
-
-
-
 test_meetings = [
   { name: "Meeting 1", duration: 3, type: :onsite },
   { name: "Meeting 2", duration: 2, type: :offsite },

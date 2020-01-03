@@ -1,5 +1,6 @@
 module WorkdayTime
   START_OF_DAY = '9:00'
+  END_OF_DAY = '17:00'
 
   class << self
     def time_string_to_numeric(time_string)
@@ -29,8 +30,9 @@ module WorkdayTime
       formatted_hours = hours.to_i > 12 ? hours.to_i - 12 : hours
       "#{formatted_hours}:#{minutes}"
     end
+
+    def time_is_after_end_of_day(time, end_of_day = END_OF_DAY)
+      time_string_to_numeric(time) > time_string_to_numeric(end_of_day)
+    end
   end
 end
-
-
-# p WorkdayTime.add_time_length_to_start_time(1.5, '10:00')
