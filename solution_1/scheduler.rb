@@ -31,6 +31,7 @@ class Scheduler
   def schedule_entry_for_meeting(meeting, start_of_meeting = current_end_of_schedule)
     end_of_meeting = time_module.add_time_length_to_start_time(meeting[:duration], start_of_meeting)
     {
+      duration: meeting[:duration],
       name: meeting[:name],
       type: meeting[:type],
       start_time: start_of_meeting,
@@ -69,11 +70,13 @@ class Scheduler
     schedule.reject { |m| m[:type] == :travel }
   end
 
-  def schedule_for_print
+  def schedule_for_print detailed: false
     schedule_excluding_travel.map do |meeting|
       start_time = time_module.military_to_12_hour(meeting[:start_time])
       end_time = time_module.military_to_12_hour(meeting[:end_time])
-      "#{start_time} - #{end_time} - #{meeting[:name]}"
+      line = "#{start_time} - #{end_time} - #{meeting[:name]}"
+      line += " (#{meeting[:duration]}, #{meeting[:type]})" if detailed
+      line
     end
   end
 
@@ -82,6 +85,6 @@ class Scheduler
 
     return false if time_module.time_is_after_end_of_day(current_end_of_schedule)
 
-    schedule_for_print
+    schedule_for_print detailed: true
   end
 end

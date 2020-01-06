@@ -24,6 +24,11 @@ test_meetings = {
     { name: "Meeting 3", duration: 2.5, type: :offsite },
     { name: "Meeting 4", duration: 3, type: :onsite }
   ],
+  # should fit because offsite meeting travel can extend past beginning of day
+  example_4: [
+    { name: "Meeting 1", duration: 3.5, type: :offsite },
+    { name: "Meeting 2", duration: 4, type: :offsite }
+  ],
 }
 
 test_meetings.each do |test_name, test_data|
