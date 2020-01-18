@@ -13,4 +13,5 @@ This is the first approach I came up with, but I don't think it's the best way. 
   - onsite-to-onsite: 0 padding
   - onsite-to-offsite: 0.5 hours padding
   - offsite-to-offsite: 0.5 hours padding
+This reliance is also baked into how travel time is handled at start-of-day; this case would ideally also be part of the meeting-types list.
 - It would be better to use a standard time library, but I wrote it without wifi access and couldn't look at the ruby Time library docs.

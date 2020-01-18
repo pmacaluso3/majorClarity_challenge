@@ -53,9 +53,13 @@ class Scheduler
     }
   end
 
+  def first_meeting_of_day?
+    schedule.empty?
+  end
+
   def schedule_offsite_meetings
     offsite_meetings.each do |meeting|
-      schedule.push(travel_to(meeting))
+      schedule.push(travel_to(meeting)) unless first_meeting_of_day?
       schedule.push(schedule_entry_for_meeting(meeting))
     end
   end
